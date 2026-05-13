@@ -1,8 +1,23 @@
+import { useEffect } from 'react'
+import { useGameStore } from './store/gameStore'
+import MetersRow from './components/MetersRow'
+import CardStack from './components/CardStack'
+import GameOver from './components/GameOver'
+import './App.css'
+
 function App() {
+  const resetGame = useGameStore((s) => s.resetGame)
+  const status = useGameStore((s) => s.status)
+
+  useEffect(() => {
+    if (status === 'idle') resetGame()
+  }, [status, resetGame])
+
   return (
-    <div className="app-placeholder">
-      <h1>Corporate Reign</h1>
-      <p>Phase 1 scaffold. Game wiring lands in later phases.</p>
+    <div className="game-root">
+      <MetersRow />
+      <CardStack />
+      <GameOver />
     </div>
   )
 }
