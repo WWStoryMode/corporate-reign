@@ -1,0 +1,576 @@
+# Corporate Reign — Initial Card Deck (18 Cards)
+> Paste this content into `src/data/cards.json` exactly as structured below.
+> All 18 cards cover six real-world-inspired arcs, three cards each.
+
+---
+
+## cards.json
+
+```json
+[
+  {
+    "id": "bro-001",
+    "arc": "bro_culture",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The HR Director",
+      "role": "People Operations",
+      "avatarInitials": "HR",
+      "accentColor": "#4ca89a"
+    },
+    "text": "An engineer has filed a harassment complaint against her team lead. He's one of our best performers. HR recommends quietly moving her to another division to avoid disruption.",
+    "left": {
+      "label": "Approve the transfer",
+      "effects": { "shareholders": 5, "management": 0, "staff": -15, "image": 0 },
+      "plant_bomb": "bro-bomb-001",
+      "bomb_delay": 8,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Investigate properly",
+      "effects": { "shareholders": -8, "management": 0, "staff": 12, "image": 10 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "The transfer was approved. She moved teams. He got a performance bonus."
+  },
+
+  {
+    "id": "bro-bomb-001",
+    "arc": "bro_culture",
+    "chain": null,
+    "type": "bomb",
+    "character": {
+      "name": "The Journalist",
+      "role": "External Pressure",
+      "avatarInitials": "JN",
+      "accentColor": "#c94c4c"
+    },
+    "text": "A former employee has published a detailed account of systemic harassment at the company. It's going viral. The board is calling for an emergency governance review.",
+    "left": {
+      "label": "Deny and discredit her",
+      "effects": { "shareholders": 5, "management": 5, "staff": -20, "image": -25 },
+      "plant_bomb": "bro-bomb-002",
+      "bomb_delay": 5,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Commission external review",
+      "effects": { "shareholders": -5, "management": -15, "staff": 15, "image": 12 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": "bro-chain-001"
+    },
+    "flavor": "We had absolutely no idea this was happening."
+  },
+
+  {
+    "id": "bro-chain-001",
+    "arc": "bro_culture",
+    "chain": "bro-bomb-001",
+    "type": "chain",
+    "character": {
+      "name": "The Chair",
+      "role": "Board Representative",
+      "avatarInitials": "CH",
+      "accentColor": "#c9a84c"
+    },
+    "text": "The external review recommends stripping the CEO of certain powers and restructuring the board. Five investors have written asking you to step aside temporarily. Will you?",
+    "left": {
+      "label": "Refuse to step back",
+      "effects": { "shareholders": -20, "management": -25, "staff": -5, "image": -10 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Take a leave of absence",
+      "effects": { "shareholders": 5, "management": -12, "staff": 8, "image": 15 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "He called it 'Travis 2.0.' Nobody used that phrase unironically."
+  },
+
+  {
+    "id": "theranos-001",
+    "arc": "fake_it",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The Head of R&D",
+      "role": "Research & Development",
+      "avatarInitials": "RD",
+      "accentColor": "#c94c4c"
+    },
+    "text": "Our core product doesn't work as advertised yet. The lab chief says we need 18 more months. The sales team has already promised clients it's live. What do we tell the investors at next week's demo?",
+    "left": {
+      "label": "Stage a convincing demo",
+      "effects": { "shareholders": 20, "management": 5, "staff": -10, "image": 8 },
+      "plant_bomb": "theranos-bomb-001",
+      "bomb_delay": 10,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Disclose the delay",
+      "effects": { "shareholders": -18, "management": -5, "staff": 10, "image": 12 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "Fake it till you make it works until it becomes wire fraud."
+  },
+
+  {
+    "id": "theranos-002",
+    "arc": "fake_it",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The Legal Counsel",
+      "role": "Corporate Legal",
+      "avatarInitials": "LC",
+      "accentColor": "#c94c4c"
+    },
+    "text": "Two junior lab employees have raised ethical concerns internally. They've been asking too many questions about the product data. Legal recommends they sign enhanced NDAs. One is the grandson of a board member.",
+    "left": {
+      "label": "NDA them both",
+      "effects": { "shareholders": 8, "management": 10, "staff": -18, "image": 0 },
+      "plant_bomb": "theranos-bomb-001",
+      "bomb_delay": 6,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Hear them out",
+      "effects": { "shareholders": -5, "management": -8, "staff": 15, "image": 5 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "Silencing a board member's grandson never ends quietly."
+  },
+
+  {
+    "id": "theranos-bomb-001",
+    "arc": "fake_it",
+    "chain": null,
+    "type": "bomb",
+    "character": {
+      "name": "The Whistleblower",
+      "role": "Anonymous Employee",
+      "avatarInitials": "WH",
+      "accentColor": "#888070"
+    },
+    "text": "A former employee has gone to a regulatory body. The agency is requesting access to all lab records from the last three years. Legal says we have 48 hours before it becomes a formal investigation.",
+    "left": {
+      "label": "Cooperate fully",
+      "effects": { "shareholders": -18, "management": -10, "staff": 8, "image": 15 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Delay and lawyer up",
+      "effects": { "shareholders": -25, "management": -5, "staff": -5, "image": -30 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "The regulator wasn't the last problem. The journalist already had the documents."
+  },
+
+  {
+    "id": "boeing-001",
+    "arc": "safety_shortcut",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The CFO",
+      "role": "Finance",
+      "avatarInitials": "CF",
+      "accentColor": "#c9a84c"
+    },
+    "text": "We're 8 months behind our competitor's new model launch. Engineering says adding the redundancy failsafe will cost $90m and delay delivery by 6 months. Finance recommends proceeding without it — the risk is 'within acceptable limits.'",
+    "left": {
+      "label": "Approve the shortcut",
+      "effects": { "shareholders": 20, "management": 5, "staff": -8, "image": 0 },
+      "plant_bomb": "boeing-bomb-001",
+      "bomb_delay": 10,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Fund the failsafe",
+      "effects": { "shareholders": -18, "management": -5, "staff": 12, "image": 10 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "'Within acceptable limits' aged very badly."
+  },
+
+  {
+    "id": "boeing-002",
+    "arc": "safety_shortcut",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The Head of Engineering",
+      "role": "Engineering Division",
+      "avatarInitials": "EG",
+      "accentColor": "#4c7ac9"
+    },
+    "text": "An engineer has submitted a formal ethics complaint. He says the system's single-sensor design will fail under a specific rare condition. He wants a safety review before ship. The product launches in three weeks.",
+    "left": {
+      "label": "Override and ship",
+      "effects": { "shareholders": 15, "management": 8, "staff": -20, "image": 0 },
+      "plant_bomb": "boeing-bomb-001",
+      "bomb_delay": 7,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Delay and review",
+      "effects": { "shareholders": -20, "management": -5, "staff": 18, "image": 8 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "39% of employees felt undue pressure not to raise concerns. The survey existed. No one acted on it."
+  },
+
+  {
+    "id": "boeing-bomb-001",
+    "arc": "safety_shortcut",
+    "chain": null,
+    "type": "bomb",
+    "character": {
+      "name": "The Regulator",
+      "role": "Government Authority",
+      "avatarInitials": "RG",
+      "accentColor": "#c94c4c"
+    },
+    "text": "A catastrophic product failure has made headlines worldwide. Regulators have grounded the entire fleet pending review. The CEO has been subpoenaed to testify before a government committee. The board was not informed for ten days.",
+    "left": {
+      "label": "Defend the product publicly",
+      "effects": { "shareholders": -30, "management": -10, "staff": -10, "image": -35 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Acknowledge and cooperate",
+      "effects": { "shareholders": -20, "management": -18, "staff": 5, "image": 12 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "The CEO called the product safe in a phone call with the President. The planes stayed grounded for 20 months."
+  },
+
+  {
+    "id": "wework-001",
+    "arc": "cult_of_growth",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The CFO",
+      "role": "Finance",
+      "avatarInitials": "CF",
+      "accentColor": "#c9a84c"
+    },
+    "text": "We're burning $500m a year with no path to profitability. The founder wants to spend $12m on a private jet lease and expand into 15 new cities. The CFO says we need to discuss sustainability. The founder says 'vision over metrics.'",
+    "left": {
+      "label": "Approve everything",
+      "effects": { "shareholders": -10, "management": 15, "staff": 10, "image": 12 },
+      "plant_bomb": "wework-bomb-001",
+      "bomb_delay": 8,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Set spending limits",
+      "effects": { "shareholders": 12, "management": -15, "staff": -5, "image": -5 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "He also sold the rights to his own company's name back to it. The lawyers said it was legal."
+  },
+
+  {
+    "id": "wework-002",
+    "arc": "cult_of_growth",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The Chair",
+      "role": "Board Representative",
+      "avatarInitials": "CH",
+      "accentColor": "#c9a84c"
+    },
+    "text": "The IPO prospectus has been leaked. Media are calling the valuation delusional. Two major institutional investors are threatening to pull out. The board wants you to remove the founder from the CEO role before filing.",
+    "left": {
+      "label": "Back the founder",
+      "effects": { "shareholders": -25, "management": 12, "staff": 5, "image": -8 },
+      "plant_bomb": "wework-bomb-001",
+      "bomb_delay": 4,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Remove the founder",
+      "effects": { "shareholders": 15, "management": -20, "staff": -10, "image": 5 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": "wework-chain-001"
+    },
+    "flavor": "He walked away with $1.05 billion. Thousands of employees lost their jobs."
+  },
+
+  {
+    "id": "wework-chain-001",
+    "arc": "cult_of_growth",
+    "chain": "wework-002",
+    "type": "chain",
+    "character": {
+      "name": "The HR Director",
+      "role": "People Operations",
+      "avatarInitials": "HR",
+      "accentColor": "#4ca89a"
+    },
+    "text": "After the restructuring, we need to lay off 2,400 staff. HR proposes a severance package and public town hall. Finance says announce it quietly via email on a Friday afternoon.",
+    "left": {
+      "label": "Friday email, keep it quiet",
+      "effects": { "shareholders": 5, "management": 5, "staff": -28, "image": -20 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Town hall and severance",
+      "effects": { "shareholders": -10, "management": -5, "staff": 15, "image": 12 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "The Friday email always leaks by Saturday. This one leaked by Friday evening."
+  },
+
+  {
+    "id": "vw-001",
+    "arc": "defeat_device",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The Head of Engineering",
+      "role": "Engineering Division",
+      "avatarInitials": "EG",
+      "accentColor": "#4c7ac9"
+    },
+    "text": "Our emissions system can't meet regulatory standards at the required cost. Engineering proposes software that performs correctly during lab testing only. It would save $200m and preserve our green marketing position. This stays between us.",
+    "left": {
+      "label": "Approve the software",
+      "effects": { "shareholders": 25, "management": 8, "staff": -5, "image": 10 },
+      "plant_bomb": "vw-bomb-001",
+      "bomb_delay": 12,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Redesign properly",
+      "effects": { "shareholders": -20, "management": -5, "staff": 10, "image": 12 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "Senior executives knew by 2007. The cover-up lasted eight years."
+  },
+
+  {
+    "id": "vw-chain-001",
+    "arc": "defeat_device",
+    "chain": "vw-001",
+    "type": "chain",
+    "character": {
+      "name": "The Legal Counsel",
+      "role": "Corporate Legal",
+      "avatarInitials": "LC",
+      "accentColor": "#4c7ac9"
+    },
+    "text": "Regulators have requested our engine certification data. Legal says the software will be discovered during inspection. They recommend destroying the relevant test records before the formal investigation begins.",
+    "left": {
+      "label": "Preserve and disclose",
+      "effects": { "shareholders": -20, "management": -18, "staff": 5, "image": 8 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Delete the records",
+      "effects": { "shareholders": -35, "management": -20, "staff": -10, "image": -35 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "Eight engineers received the message. All of them deleted the data. Some of it was recovered anyway."
+  },
+
+  {
+    "id": "vw-bomb-001",
+    "arc": "defeat_device",
+    "chain": null,
+    "type": "bomb",
+    "character": {
+      "name": "The Journalist",
+      "role": "External Pressure",
+      "avatarInitials": "JN",
+      "accentColor": "#c94c4c"
+    },
+    "text": "An independent research team has published findings that your product emits 40x the legal limit in real-world conditions. The story is on the front page globally. Regulators in three countries are opening investigations simultaneously.",
+    "left": {
+      "label": "Issue a full apology",
+      "effects": { "shareholders": -25, "management": -15, "staff": 5, "image": 10 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Claim it's a testing anomaly",
+      "effects": { "shareholders": -20, "management": -5, "staff": -5, "image": -35 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "The fine was $4.3 billion. The cover-up cost more than fixing the problem would have."
+  },
+
+  {
+    "id": "surveillance-001",
+    "arc": "productivity_machine",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The Head of Operations",
+      "role": "Operations",
+      "avatarInitials": "OP",
+      "accentColor": "#4ca89a"
+    },
+    "text": "Our new AI workforce monitoring system tracks toilet breaks, typing speed, and mouse movement in real time. Productivity is up 18%. Injury rates are also up 40%. Operations wants to roll it out company-wide.",
+    "left": {
+      "label": "Full company-wide rollout",
+      "effects": { "shareholders": 20, "management": 10, "staff": -25, "image": -5 },
+      "plant_bomb": "surveillance-bomb-001",
+      "bomb_delay": 7,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Cap it at pilot sites",
+      "effects": { "shareholders": -8, "management": 0, "staff": 12, "image": 10 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "'It kind of feels like prison.' — actual warehouse employee, on record."
+  },
+
+  {
+    "id": "surveillance-002",
+    "arc": "productivity_machine",
+    "chain": null,
+    "type": "character",
+    "character": {
+      "name": "The CEO",
+      "role": "Chief Executive",
+      "avatarInitials": "CE",
+      "accentColor": "#888070"
+    },
+    "text": "We're mandating five-day office attendance for all corporate staff, effective next quarter. No exceptions. The comms team says it will trigger a talent exodus among senior engineers. Do you send the announcement as written?",
+    "left": {
+      "label": "Send it as written",
+      "effects": { "shareholders": 8, "management": 20, "staff": -22, "image": -8 },
+      "plant_bomb": "surveillance-bomb-001",
+      "bomb_delay": 5,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Offer a hybrid option",
+      "effects": { "shareholders": -5, "management": -12, "staff": 15, "image": 10 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "'What's going to motivate you more: a ping-pong table, or avoiding two hours in rush-hour traffic?'"
+  },
+
+  {
+    "id": "surveillance-bomb-001",
+    "arc": "productivity_machine",
+    "chain": null,
+    "type": "bomb",
+    "character": {
+      "name": "The Regulator",
+      "role": "Government Authority",
+      "avatarInitials": "RG",
+      "accentColor": "#c94c4c"
+    },
+    "text": "A government investigation has found our employee monitoring system 'excessively intrusive' in violation of data protection law. A €32m fine is proposed. The regulator wants public evidence of a full policy overhaul within 60 days.",
+    "left": {
+      "label": "Contest the fine in court",
+      "effects": { "shareholders": -10, "management": 5, "staff": -12, "image": -20 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "right": {
+      "label": "Pay and reform publicly",
+      "effects": { "shareholders": -15, "management": -10, "staff": 15, "image": 18 },
+      "plant_bomb": null,
+      "bomb_delay": null,
+      "unlock_chain": null
+    },
+    "flavor": "The Time Off Task timer continued tracking bathroom breaks throughout the investigation."
+  }
+]
+```
+
+---
+
+## Character Reference
+
+All characters who appear across cards, for consistent avatar rendering:
+
+| avatarInitials | name | role | accentColor | Meter bias |
+|---|---|---|---|---|
+| `HR` | The HR Director | People Operations | `#4ca89a` | Staff |
+| `CH` | The Chair | Board Representative | `#c9a84c` | Shareholders |
+| `CF` | The CFO | Finance | `#c9a84c` | Shareholders + Management |
+| `JN` | The Journalist | External Pressure | `#c94c4c` | Image wildcard |
+| `WH` | The Whistleblower | Anonymous Employee | `#888070` | All meters |
+| `RG` | The Regulator | Government Authority | `#c94c4c` | Image + Shareholders |
+| `LC` | The Legal Counsel | Corporate Legal | `#4c7ac9` | Management |
+| `RD` | The Head of R&D | Research & Development | `#c94c4c` | Staff + Image |
+| `EG` | The Head of Engineering | Engineering Division | `#4c7ac9` | Staff + Shareholders |
+| `OP` | The Head of Operations | Operations | `#4ca89a` | Staff + Shareholders |
+| `CE` | The CEO | Chief Executive | `#888070` | Management |
+
+---
+
+## Arc Summary
+
+| Arc ID | arc field value | Inspired by | Cards |
+|---|---|---|---|
+| Bro Culture Implosion | `bro_culture` | Ride-sharing startup, 2017 | bro-001, bro-bomb-001, bro-chain-001 |
+| Fake It Till You Go to Prison | `fake_it` | Blood-testing startup, 2003–2018 | theranos-001, theranos-002, theranos-bomb-001 |
+| The Safety Shortcut | `safety_shortcut` | Aviation manufacturer, 2011–2019 | boeing-001, boeing-002, boeing-bomb-001 |
+| The Cult of Growth | `cult_of_growth` | Co-working unicorn, 2010–2023 | wework-001, wework-002, wework-chain-001 |
+| The Defeat Device | `defeat_device` | German automaker, 2006–2015 | vw-001, vw-chain-001, vw-bomb-001 |
+| The Productivity Machine | `productivity_machine` | Logistics giant + tech RTO, 2020s | surveillance-001, surveillance-002, surveillance-bomb-001 |
+
+---
+
+## Notes for Claude Code
+
+- **Bomb deduplication:** if two bombs resolve to the same `cardIndex`, inject both but play them on consecutive turns rather than simultaneously.
+- **Chain cards:** `wework-chain-001` and `bro-chain-001` should only enter the deck when their parent card's `unlock_chain` condition is triggered. Do not shuffle them into the base deck.
+- **vw-chain-001** is slightly different — it has `"chain": "vw-001"` meaning it fires automatically as the next card after `vw-001` left swipe (not a bomb, an immediate follow-up). Treat it like an instant unlock.
+- **Effect clamping:** all meter values clamp between 0 and 100. Never go negative or above 100.
+- **Game over check** runs after every `swipeCard()` call, before `drawNextCard()`.
