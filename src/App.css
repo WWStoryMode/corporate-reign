@@ -268,19 +268,23 @@
 }
 
 .card-choices {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+  position: relative;
+  min-height: 18px;
   font-family: var(--font-mono);
   font-size: 10.5px;
 }
 
 .choice-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   font-weight: 500;
-  max-width: 45%;
+  padding: 0 8px;
 }
 
 .choice-left {
@@ -289,7 +293,6 @@
 
 .choice-right {
   color: var(--accent-staff);
-  text-align: right;
 }
 
 /* GameOver */
